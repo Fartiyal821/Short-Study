@@ -27,6 +27,7 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: auto;
+    position: relative;
 }
 
 .logo {
@@ -171,6 +172,7 @@ header {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .nav-links li {
@@ -183,26 +185,126 @@ header {
     font-size: 16px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active-link {
     color: #00bcd4;
 }
 
-.menu-toggle {
+.nav-links a.active-link {
+    font-weight: 700;
+}
+
+.burger {
     display: none;
-    font-size: 22px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+.burger div {
+    width: 100%;
+    height: 3px;
+    background-color: #4a3f35;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger.open .line1 {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.burger.open .line2 {
+    opacity: 0;
+}
+
+.burger.open .line3 {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media (max-width: 900px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .burger {
+        display: flex;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
+        width: 100%;
+        background-color: #F5E1D2;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     }
+
     .nav-links.active {
         display: flex;
     }
-    .menu-toggle {
+
+    .nav-links li {
+        width: 100%;
+        padding: 0.75rem 0;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
         display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh;
+        padding: 2rem 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .btn-primary {
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
