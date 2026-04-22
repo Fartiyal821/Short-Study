@@ -1,0 +1,125 @@
+body {
+    background-color: var(--bg-primary);
+}
+
+.other {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.other-intro h1 {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.other-intro p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+}
+
+.btn-secondary {
+    padding: 12px 24px;
+    border: 2px solid var(--button-bg);
+    background: transparent;
+    color: var(--button-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--button-bg);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 920px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .other {
+        padding: 30px 16px;
+    }
+
+    .other-intro h1 {
+        font-size: 2.2rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .other-intro h1 {
+        font-size: 1.8rem;
+    }
+
+    .other-intro p {
+        font-size: 0.95rem;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .btn-secondary {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}

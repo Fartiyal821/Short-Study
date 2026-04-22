@@ -1,0 +1,119 @@
+/* Contact Section */
+.contact {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 2s ease-in;
+}
+
+.contact h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    animation: slideInFromTop 1.5s ease-out;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    animation: fadeInUp 2s ease-out 0.5s both;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    width: 100%;
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    animation: fadeInUp 2s ease-out 1s both;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4a373;
+    box-shadow: 0 0 5px rgba(212, 163, 115, 0.3);
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    animation: none; /* Override the fadeInUp for button */
+}
+
+.contact-form .btn-primary:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact h1 {
+        font-size: 2.5rem;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 30px 16px;
+    }
+
+    .contact h1 {
+        font-size: 2rem;
+    }
+
+    .contact p {
+        font-size: 1rem;
+    }
+
+    .contact-form {
+        padding: 16px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .contact-form .btn-primary {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

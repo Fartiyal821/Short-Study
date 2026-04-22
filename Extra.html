@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Series | Short Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Extra.css">
+    <link rel="icon" type="image/png" href="h.png">
+    <script>
+        // Night mode - Load immediately before page renders to prevent flash
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">&lt;/&gt;</span> Short<span>Study</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="web.html" class="dropbtn">Courses &#9662;</a>
+                    <ul class="dropdown-content">
+                        <li><a href="web.html">Web Development</a></li>
+                        <li><a href="web.html">Python (Machine Learning)</a></li>
+                        <li><a href="web.html">Data Science</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Affiliate Marketing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="other.html">Others</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <button class="theme-toggle floating" id="themeToggle" title="Toggle Night Mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <section class="extra-page">
+        <div class="page-head">
+            <h1>Tutorial Series</h1>
+            <p>Click a lesson to load the video and see its description, just like a modern course player.</p>
+        </div>
+
+        <div class="video-layout">
+            <aside class="video-list">
+                <div class="video-card active" data-video="YBB3GbluHjA" data-title="Professional HTML Basics" data-description="Learn the fundamentals of HTML with Harry, including semantic tags, structure, and how to organize pages like a professional developer.">
+                    <img class="video-thumb" src="https://img.youtube.com/vi/YBB3GbluHjA/hqdefault.jpg" alt="Professional HTML Basics thumbnail">
+                </div>
+            </aside>
+
+            <main class="video-player-panel">
+                <div class="player-header">
+                    <h2 id="videoTitle">Professional HTML Basics</h2>
+                </div>
+                <div class="player-frame">
+                    <iframe id="videoFrame" width="560" height="315" src="https://www.youtube.com/embed/YBB3GbluHjA?modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-details">
+                    <h3>Description</h3>
+                    <p id="videoDescription">Learn the fundamentals of HTML with Harry, including semantic tags, structure, and how to organize pages like a professional developer.</p>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="Extra.js"></script>
+    <script>
+        // Night mode functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Get current theme (already set in head)
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        updateThemeButton(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const theme = htmlElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+        
+        function updateThemeButton(theme) {
+            const icon = themeToggle.querySelector('.theme-icon');
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>

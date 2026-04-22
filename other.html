@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Services | Short Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="other.css">
+    <link rel="icon" type="image/png" href="h.png">
+    <script>
+        // Night mode - Load immediately before page renders to prevent flash
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">&lt;/&gt;</span> Short<span>Study</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="web.html" class="dropbtn">Courses &#9662;</a>
+                    <ul class="dropdown-content">
+                        <li><a href="web.html">Web Development</a></li>
+                        <li><a href="web.html">Python (Machine Learning)</a></li>
+                        <li><a href="web.html">Data Science</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Affiliate Marketing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="other.html">Others</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <button class="theme-toggle floating" id="themeToggle" title="Toggle Night Mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <section class="other">
+        <div class="other-intro">
+            <h1>More Ways to Learn</h1>
+            <p>Explore additional resources, quick guides, and practical tools built for your learning journey.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h2>Quick Tutorials</h2>
+                <p>Short, focused lessons that help you learn fast and apply skills immediately.</p>
+                <button class="btn-secondary" data-feature="tutorials">View Tutorials</button>
+            </div>
+            <div class="card">
+                <h2>Study Resources</h2>
+                <p>Downloadable notes, cheat sheets, and study planners to keep your learning on track.</p>
+                <button class="btn-secondary" data-feature="resources">Browse Resources</button>
+            </div>
+            <div class="card">
+                <h2>Mentor Support</h2>
+                <p>Get personalized guidance from our expert mentors and improve your progress.</p>
+                <button class="btn-secondary" data-feature="mentors">Meet Mentors</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="other.js"></script>
+    <script>
+        // Night mode functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Get current theme (already set in head)
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        updateThemeButton(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const theme = htmlElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+        
+        function updateThemeButton(theme) {
+            const icon = themeToggle.querySelector('.theme-icon');
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>

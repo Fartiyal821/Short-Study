@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Course | Short Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="web.css">
+    <link rel="icon" type="image/png" href="h.png">
+    <script>
+        // Night mode - Load immediately before page renders to prevent flash
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">&lt;/&gt;</span> Short<span>Study</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="web.html" class="dropbtn">Courses &#9662;</a>
+                    <ul class="dropdown-content">
+                        <li><a href="web.html">Web Development</a></li>
+                        <li><a href="web.html">Python (Machine Learning)</a></li>
+                        <li><a href="web.html">Data Science</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Affiliate Marketing</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="other.html">Others</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <button class="theme-toggle floating" id="themeToggle" title="Toggle Night Mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <section class="courses-page">
+        <div class="courses-header">
+            <h1>Web Development Courses</h1>
+            <p>Master modern web development with our comprehensive, project-based courses</p>
+        </div>
+
+        <div class="courses-container">
+            <div class="course-card">
+                <div class="course-image">
+                    <div class="course-icon">HTML</div>
+                </div>
+                <div class="course-info">
+                    <h2>HTML Fundamentals</h2>
+                    <p class="course-desc">Learn the building blocks of web pages. Master semantic HTML, structure, and best practices for professional development.</p>
+                    <div class="course-meta">
+                        <span class="course-level">Beginner</span>
+                        <span class="course-duration">4 weeks</span>
+                    </div>
+                    <button class="btn-primary course-btn">Start Course</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <div class="course-icon">CSS</div>
+                </div>
+                <div class="course-info">
+                    <h2>CSS Styling & Layout</h2>
+                    <p class="course-desc">Create beautiful, responsive designs. Learn Flexbox, Grid, animations, and modern CSS techniques for stunning websites.</p>
+                    <div class="course-meta">
+                        <span class="course-level">Beginner</span>
+                        <span class="course-duration">5 weeks</span>
+                    </div>
+                    <button class="btn-primary course-btn">Start Course</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <div class="course-icon">JS</div>
+                </div>
+                <div class="course-info">
+                    <h2>JavaScript Essentials</h2>
+                    <p class="course-desc">Learn programming fundamentals with JavaScript. Master variables, functions, loops, and DOM manipulation for interactive websites.</p>
+                    <div class="course-meta">
+                        <span class="course-level">Intermediate</span>
+                        <span class="course-duration">6 weeks</span>
+                    </div>
+                    <button class="btn-primary course-btn">Start Course</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <div class="course-icon">REACT</div>
+                </div>
+                <div class="course-info">
+                    <h2>React.js Development</h2>
+                    <p class="course-desc">Build modern single-page applications with React. Learn components, hooks, state management, and real-world project development.</p>
+                    <div class="course-meta">
+                        <span class="course-level">Intermediate</span>
+                        <span class="course-duration">7 weeks</span>
+                    </div>
+                    <button class="btn-primary course-btn">Start Course</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <div class="course-icon">NODE</div>
+                </div>
+                <div class="course-info">
+                    <h2>Node.js & Express</h2>
+                    <p class="course-desc">Master backend development with Node.js and Express. Build APIs, handle databases, and create full-stack applications.</p>
+                    <div class="course-meta">
+                        <span class="course-level">Intermediate</span>
+                        <span class="course-duration">6 weeks</span>
+                    </div>
+                    <button class="btn-primary course-btn">Start Course</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <div class="course-icon">FULL</div>
+                </div>
+                <div class="course-info">
+                    <h2>Full Stack Web Development</h2>
+                    <p class="course-desc">Complete journey from frontend to backend. Build production-ready applications with modern tech stack and best practices.</p>
+                    <div class="course-meta">
+                        <span class="course-level">Advanced</span>
+                        <span class="course-duration">12 weeks</span>
+                    </div>
+                    <button class="btn-primary course-btn">Start Course</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Night mode functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Get current theme (already set in head)
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        updateThemeButton(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const theme = htmlElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+        
+        function updateThemeButton(theme) {
+            const icon = themeToggle.querySelector('.theme-icon');
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>
