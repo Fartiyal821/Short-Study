@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Short Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="g.css">
+    <link rel="icon" type="image/png" href="h.png">
+    <script>
+        // Night mode - Load immediately before page renders to prevent flash
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</head>
+<body>
+    <!-- Password Protection Screen -->
+    <div id="passwordScreen" class="password-screen">
+        <div class="password-container">
+            <div class="password-box">
+                <h1>🔒 Admin Panel</h1>
+                <p>Enter password to access</p>
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    placeholder="Enter password"
+                    autocomplete="off"
+                >
+                <button id="submitPassword" class="btn-primary">Access</button>
+                <p id="passwordError" class="error-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Screen -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1>📚 Course Management Panel</h1>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+
+            <div class="admin-form">
+                <h2>Create New Course</h2>
+
+                <!-- Course Selection -->
+                <div class="form-group">
+                    <label for="courseSelect">Course Category:</label>
+                    <select id="courseSelect" required>
+                        <option value="">-- Choose a category --</option>
+                        <option value="web">🌐 Web Development</option>
+                        <option value="python">🐍 Python (Machine Learning)</option>
+                        <option value="data">📊 Data Science</option>
+                    </select>
+                </div>
+
+                <!-- YouTube Embed Link -->
+                <div class="form-group">
+                    <label for="youtubeLink">YouTube Embed Link:</label>
+                    <input 
+                        type="text" 
+                        id="youtubeLink" 
+                        placeholder="e.g., https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        required
+                    >
+                    <small>Use embed link (youtube.com/embed/VIDEO_ID)</small>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description">Course Description:</label>
+                    <textarea 
+                        id="description" 
+                        placeholder='Enter description. Use "text" for code blocks. Example: "npm install" will appear as a copyable code block'
+                        rows="4"
+                        required
+                    ></textarea>
+                    <small>Text in quotes ("like this") will be formatted as code blocks</small>
+                </div>
+
+                <!-- Notes/Resources -->
+                <div class="form-group">
+                    <label for="notes">Notes / Resources:</label>
+                    <textarea 
+                        id="notes" 
+                        placeholder="Enter notes or paste links. Both links and text are allowed."
+                        rows="4"
+                    ></textarea>
+                    <small>Links will be automatically clickable</small>
+                </div>
+
+                <button id="submitBtn" class="btn-submit">Create Course</button>
+            </div>
+
+            <!-- Existing Courses List -->
+            <div class="existing-courses">
+                <h2>Existing Courses</h2>
+                <div id="coursesList" class="courses-list">
+                    <p class="empty-message">No courses added yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="g.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Short Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="icon" type="image/png" href="h.png">
+    <script>
+        // Night mode - Load immediately before page renders to prevent flash
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container active">
+        <div class="login-box">
+            <h1>Admin Panel</h1>
+            <p>Enter password to continue</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" class="login-input">
+            <button id="loginBtn" class="btn-primary login-btn">Login</button>
+            <p id="loginError" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo"><span class="logo-icon">&lt;/&gt;</span> Short<span>Study</span></a>
+                <div class="admin-header">Admin Panel</div>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+
+        <button class="theme-toggle floating" id="themeToggle" title="Toggle Night Mode">
+            <span class="theme-icon">🌙</span>
+        </button>
+
+        <section class="admin-content">
+            <div class="admin-container">
+                <h2>Add New Course</h2>
+                <form id="courseForm" class="course-form">
+                    
+                    <div class="form-group">
+                        <label for="courseName">Course Name *</label>
+                        <input type="text" id="courseName" required placeholder="e.g., HTML Fundamentals">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseIcon">Course Icon/Code *</label>
+                        <input type="text" id="courseIcon" required placeholder="e.g., HTML, CSS, JS">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseLevel">Course Level *</label>
+                        <select id="courseLevel" required>
+                            <option value="">Select Level</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseDuration">Course Duration *</label>
+                        <input type="text" id="courseDuration" required placeholder="e.g., 4 weeks">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="youtubeLink">YouTube Embed Link *</label>
+                        <input type="url" id="youtubeLink" required placeholder="https://www.youtube.com/embed/VIDEO_ID">
+                        <small>Format: https://www.youtube.com/embed/VIDEO_ID</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseDescription">Course Description *</label>
+                        <textarea id="courseDescription" required placeholder="Describe the course..."></textarea>
+                        <small>📝 Tip: Wrap text in double quotes "" to make it appear as a copyable code block</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseNotes">Notes / Additional Resources</label>
+                        <textarea id="courseNotes" placeholder="Add notes, links, or additional resources..."></textarea>
+                        <small>📎 Links are allowed: https://example.com</small>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn">Add Course to Website</button>
+                </form>
+
+                <div id="successMsg" class="success-msg" style="display: none;">
+                    ✓ Course added successfully! It's now visible on the website.
+                </div>
+
+                <hr class="divider">
+
+                <h2>Manage Courses</h2>
+                <div id="coursesList" class="courses-list">
+                    <p class="no-courses">No courses added yet</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

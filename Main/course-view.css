@@ -1,0 +1,241 @@
+/* Course View Page Styling */
+
+.course-view-section {
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 100px);
+    background: var(--bg-primary);
+}
+
+.course-view-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.course-header {
+    margin-bottom: 2rem;
+}
+
+.btn-back {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.btn-back:hover {
+    background: var(--button-hover);
+}
+
+.course-title-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.course-icon-large {
+    background: var(--button-bg);
+    color: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.course-title-section h1 {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.course-meta-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    background: var(--button-bg);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.course-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.video-section h2,
+.details-section h2 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.video-container {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.video-container iframe {
+    border-radius: 8px;
+}
+
+.course-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.details-section {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.description-content,
+.notes-content {
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.description-content p,
+.notes-content p {
+    margin-bottom: 0.75rem;
+}
+
+.block-code {
+    display: block;
+    background: var(--bg-primary);
+    border-left: 4px solid var(--button-bg);
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    word-break: break-word;
+    user-select: all;
+    cursor: copy;
+}
+
+.inline-code {
+    background: var(--bg-secondary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: var(--button-bg);
+}
+
+.resource-link {
+    color: var(--button-bg);
+    text-decoration: none;
+    word-break: break-all;
+    transition: text-decoration 0.3s ease;
+}
+
+.resource-link:hover {
+    text-decoration: underline;
+}
+
+.notes-content a {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.btn-enroll {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .course-content {
+        grid-template-columns: 1fr;
+    }
+
+    .course-title-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .course-title-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .course-icon-large {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+
+    .meta-item {
+        flex: 1;
+        min-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-view-section {
+        padding: 1rem;
+    }
+
+    .course-header {
+        margin-bottom: 1rem;
+    }
+
+    .course-title-section {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .course-title-section h1 {
+        font-size: 1.2rem;
+    }
+
+    .course-icon-large {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+
+    .video-container iframe {
+        height: 300px;
+    }
+
+    .details-section {
+        padding: 1rem;
+    }
+
+    .meta-item {
+        min-width: 100%;
+    }
+}
